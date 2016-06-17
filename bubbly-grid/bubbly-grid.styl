@@ -1,0 +1,136 @@
+// **********
+// BUBBLY GRID SYSTEM
+// **********
+
+
+/* Sym grid (symmetrical only)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/*
+
+- the 'clearing' variable is used to make sure that
+  every column clears at the end of each cycle (e.g., if col = 4, it's gonna clear every 4th item)
+
+- width = 99.99% because otherwise the layout breaks in IE...
+
+- all the jibber-jabber on the 'width' lines can be explained here :
+  https://github.com/stylus/stylus/issues/687
+
+*/
+
+sym-grid(col = 1, gutter = 10px, stretch = false, full = false)
+  clearing = col + 1
+  float: left
+  width: 'calc(99.99% * 1/%s - (%s - %s * 1/%s))' % (col gutter gutter col)
+  margin-right: gutter
+  &:nth-of-type(n)
+    margin-right: gutter
+    clear: none
+  &:nth-of-type({col}n+{col})
+    margin-right: 0
+  &:nth-of-type({col}n+{clearing})
+    clear: left
+
+  if stretch is true
+    for i in (2..col)
+      remainingCols = (col - i) + 1
+      &:nth-of-type({col}n+{i}):last-of-type
+        width: 'calc(99.99% * %s/%s - (%s - %s * %s/%s))' % (remainingCols col gutter gutter remainingCols col)
+        margin-right: 0
+      &:nth-of-type({col}n+{clearing}):last-of-type
+        width: 100%
+        margin-right: 0
+
+  else if stretch is reset
+    for i in (2..col)
+      remainingCols = (col - i) + 1
+      &:nth-of-type({col}n+{i}):last-of-type
+        width: 'calc(99.99% * 1/%s - (%s - %s * 1/%s))' % (col gutter gutter col)
+        margin-right: 0
+      &:nth-of-type({col}n+{clearing}):last-of-type
+        width: 'calc(99.99% * 1/%s - (%s - %s * 1/%s))' % (col gutter gutter col)
+
+  if full == true
+    width: 100%
+
+
+/* Asym grid (asymmetrical)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* This function() is here thanks to IE...which doesn't handle properly the raw ratios we pass within the @mixin asym-grid(col, push...) */
+
+transformRatio(ratio) {
+  multiplyRatio = ratio * 100
+  newRatio = round(multiplyRatio, 5)
+  return newRatio
+}
+
+asym-grid(col = 1/1, gutter = 0px, last = false, push = false, pull = false, full = false)
+  newCol = transformRatio(col)
+  float: left
+  margin-right: gutter
+  width: 'calc(99.99% * (%s/100) - (%s - %s * (%s/100)))' % (newCol gutter gutter newCol)
+
+  if last is true
+    float: right
+    margin-right: 0
+    + *
+      clear: both
+  if last is reset
+    + *
+      clear: none
+
+  if push is not false && push is not reset
+    newPush = transformRatio(push)
+    position: relative
+    left: 'calc(99.99% * (%s/100) + (%s + %s * (%s/100)) - %s )' % (newPush gutter gutter newPush gutter)
+  if push == reset
+    position: static
+
+  if pull is not false && pull is not reset
+    newPull = transformRatio(pull)
+    position: relative
+    right: 'calc(99.99% * (%s/100) + (%s + %s * (%s/100)) - %s )' % (newPull gutter gutter newPull gutter)
+  if pull == reset
+    position: static
+
+  if full is true
+    position: static
+    width: 100%
+    margin-right: 0
+
+
+/* Nesting
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* When you want to nest multiples symmetrical grids, ex :
+
+.container
+  .first-lvl item
+    sym-grid(4, 20px)
+
+  .second-lvl
+    nest()
+
+  .second-lvl item
+    sym-grid(2, 10px)
+
+*/
+
+nest($float = left)
+  float $float
+  width 100%
+
+
+/* Centering
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* When you want to center a col */
+
+asym-center()
+  float: left
+  position: relative
+  left: 50%
+  transform: translateX(-50%)
+  + *
+    clear: left
