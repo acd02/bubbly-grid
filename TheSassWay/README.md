@@ -45,8 +45,8 @@ Here is an example of how you can use it :
 
 ```js
 var sass      = require('gulp-sass'),
-    
-    
+
+
 gulp.task('css-builder', function () {
   return gulp.src('./stylesheets/style.scss')
     .pipe(sass({
@@ -125,7 +125,7 @@ The HTML :
 - and a gutter of 20px between each column
 
 
-![col](http://alex-l.com/img/col.png)
+![col](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/col.png)
 
 
 ### <a name="$gutter"></a> $gutter
@@ -149,7 +149,7 @@ The HTML :
 - You'll get a gutter of 2em between each column
 
 
-![gutter](http://alex-l.com/img/gutter.png)
+![gutter](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/gutter.png)
 
 ### <a name="$stretch"></a> $stretch
 [back to top](#top)
@@ -183,7 +183,7 @@ The HTML :
 </div>
 ```
 
-![stretch](http://alex-l.com/img/stretch.png)
+![stretch](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/stretch.png)
 
 ### <a name="$sym-nest"></a> Nesting
 [back to top](#top)
@@ -266,7 +266,7 @@ The HTML :
 </div>
 ```
 
-![nest](http://alex-l.com/img/nest.png)
+![nest](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/nest.png)
 
 ### <a name="sym-media"></a> media-queries
 [back to top](#top)
@@ -290,7 +290,7 @@ Let's say that when the window width gets below 420px, you wanna change the numb
 - Then, we set a new value for the $gutter => 2em
 - If not declared, the $gutter value would've been => 10px (the default value)
 
-![sym-mq](http://alex-l.com/img/sym-mq.png)
+![sym-mq](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/sym-mq.png)
 
 **Media queries and $stretch :**
 
@@ -358,7 +358,7 @@ Once you have declared '$stretch', you will have to re-set it everytime you set 
 }
 ```
 
-![sym-full](http://alex-l.com/img/sym-full.png)
+![sym-full](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/sym-full.png)
 
 ___
 
@@ -443,7 +443,7 @@ The HTML :
   <div class="RightSide">
     RightSide
   </div>
-  <!-- second row --> 
+  <!-- second row -->
   <div class="left-side">
     left-side
   </div>
@@ -453,7 +453,7 @@ The HTML :
   <div class="right-side">
     right-side
   </div>
-  <!-- third row -->  
+  <!-- third row -->
   <div class="left__side">
     left__side
   </div>
@@ -466,7 +466,7 @@ The HTML :
 </div>
 ```
 
-![asym-grid](http://alex-l.com/img/asym-grid.png)
+![asym-grid](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-grid.png)
 
 ### <a name="$push"></a> $push
 [back to top](#top)
@@ -503,7 +503,7 @@ The HTML :
 </div>
 ```
 
-![push](http://alex-l.com/img/push.png)
+![push](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/push.png)
 
 Alternatively, you can also use negative values if you wanna push an element to the left, e.g., $push: -1/12 is the same as => $pull: 1/12
 
@@ -542,7 +542,7 @@ The HTML :
 </div>
 ```
 
-![push](http://alex-l.com/img/pull.png)
+![push](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/pull.png)
 
 Alternatively, you can also use negative values if you wanna pull an element to the right, e.g., $pull: -1/12 is the same as => $push: 1/12
 
@@ -553,7 +553,7 @@ Sure, you can center a column by moving it around using `$push` or `$pull`, but 
 
 Let's take a look at this exemple :
 
-![push](http://alex-l.com/img/asym-center.png)
+![push](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-center.png)
 
 The HTML :
 
@@ -583,7 +583,7 @@ SCSS :
 .half {
   @include asym-grid(1/2);
   @include asym-center();
-  
+
   @media screen and (max-width: 760px) {
     @include asym-grid(1/3); // it will still be centered
   }
@@ -683,7 +683,7 @@ The HTML :
 </div>
 ```
 
-![asym-nest](http://alex-l.com/img/asym-nest.png)
+![asym-nest](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-nest.png)
 
 ### <a name="asym-media"></a> Media-queries
 [back to top](#top)
@@ -704,7 +704,7 @@ Above 760px :
 }
 ```
 
-![asym-mq-b](http://alex-l.com/img/asym-mq-b.png)
+![asym-mq-b](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-mq-b.png)
 
 Below 760px :
 
@@ -730,7 +730,7 @@ If you get bored of all the pushing and pulling around, use $push or $pull => **
 }
 ```
 
-![asym-mq-a](http://alex-l.com/img/asym-mq-a.png)
+![asym-mq-a](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-mq-a.png)
 
 ### <a name="$full"></a> $full
 [back to top](#top)
@@ -757,7 +757,7 @@ If you get bored of all the pushing and pulling around, use $push or $pull => **
   }
 }
 ```
-![asym-full](http://alex-l.com/img/asym-full.png)
+![asym-full](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-full.png)
 
 ## <a name="last"></a> $last
 [back to top](#top)
@@ -852,7 +852,7 @@ The HTML :
 </div>
 ```
 
-![asym-full](http://alex-l.com/img/last-b.png)
+![asym-full](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/last-b.png)
 
 Now, let's get down to business :
 ```scss
@@ -904,7 +904,7 @@ Now, let's get down to business :
   }
 }
 ```
-![asym-full](http://alex-l.com/img/last-a.png)
+![asym-full](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/last-a.png)
 
 ### <a name="$skew"></a> $skew
 [back to top](#top)
@@ -913,7 +913,7 @@ Last but not least, if you want to spice things up a little bit, I may got what 
 
 `skew` is the name, and it looks a little something like this :
 
-![skew](http://alex-l.com/img/skew.png)
+![skew](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/skew.png)
 
 The HTML :
 
