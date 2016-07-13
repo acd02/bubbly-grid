@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="47px" height="92px" viewBox="0 0 47 92" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="straw" sketch:type="MSLayerGroup" transform="translate(26.869917, 58.782116) scale(-1, 1) translate(-26.869917, -58.782116) translate(-0.630083, 0.782116)" stroke="#FFFFFF" fill="#FFFFFF">
+            <path d="M11.537,40.442 L20.218,85.626 C20.218,85.626 29.91,92.6 40.276,86.494 L48.896,41.2 C48.896,41.2 32.144,45.955 11.537,40.442 L11.537,40.442 Z" id="Shape" stroke-width="4" sketch:type="MSShapeGroup"></path>
+            <path d="M32.455,33.292 L39.167,6.334 L53.25,4.89 C53.25,4.89 53.329,1.52 53.238,0.873 C51.65,0.651 35.984,2.582 35.984,2.582 L27.226,35.461 L32.455,33.292 L32.455,33.292 Z" id="Shape" stroke-width="2" sketch:type="MSShapeGroup"></path>
+            <path d="M48.195,35.046 L46.13,28.186 C46.13,28.186 29.529,29.402 15.293,28.14 L13.15,35.461 L48.195,35.046 L48.195,35.046 Z" id="Shape" stroke-width="4" sketch:type="MSShapeGroup"></path>
+            <path d="M50.973,40.431 L48.896,41.2 C48.896,41.2 33.411,46.439 11.537,40.443 L9.573,38.639 L10.328,33.622 L50.163,34.273 C50.163,34.272 51.298,37.867 50.973,40.431 L50.973,40.431 Z" id="Shape" stroke-width="4" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
