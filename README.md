@@ -8,7 +8,7 @@ Made with calc(), so it will support the latest versions of Chrome, Firefox, Saf
 
 ___
 
-Wanna see a [demo page](http://alex-l.com/bubbly-boilerplate/)?
+Wanna see a [demo page](https://alx-l.github.io/bubbly-grid/)?
 
 Available on [npm](https://www.npmjs.com/package/bubbly-grid-stylus).
 
