@@ -10,6 +10,8 @@ ___
 
 Wanna see a [demo page](http://alex-l.com/bubbly-boilerplate/)?
 
+Available on [npm](https://www.npmjs.com/package/bubbly-grid-stylus).
+
 Want the [scss version](https://www.npmjs.com/package/bubbly-grid-sass)?
 
 - [Installation](#installation)
