@@ -28,7 +28,7 @@ Want the [scss version](https://www.npmjs.com/package/bubbly-grid-sass)?
   - [Center](#$center)
   - [Nesting](#$asym-nest)
   - [Media-queries](#asym-media)
-  - [Full](#full)
+  - [Full](#$full)
   - [Last](#last)
 
 ## <a name="installation"></a> Installation
