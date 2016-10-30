@@ -83,7 +83,6 @@ Make sure to apply some clearfix mixin to the parent container, since every item
 - number of columns per row
 - *default value is 1*
 
-
 ```stylus
 .container
   some-clearfix()
@@ -115,7 +114,7 @@ The HTML :
 ### <a name="$gutter"></a> $gutter
 **[:arrow_up: back to top](#top)**
 
-- width of the gutter (values can be in 'px', 'em', 'rem' or '%')
+- width of the **gutter** (values can be in 'px', 'em', 'rem' or '%')
 - *default value is 10px*
 
 ```stylus
@@ -127,7 +126,6 @@ The HTML :
 ```
 - You'll get 3 columns per row
 - You'll get a gutter of 2em between each column
-
 
 ![gutter](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/gutter.png)
 
@@ -241,7 +239,6 @@ The HTML :
 
 **Media queries and new cycles :**
 
-
 Let's say that when the window width gets below 420px, you wanna change the number of cols per row :
 
 ```stylus
@@ -254,7 +251,7 @@ Let's say that when the window width gets below 420px, you wanna change the numb
 ```
 
 - First, we set a new cycle with => 2
-- Then, we set a new value for the gutter => 2em
+- Then, we set a new value for the **gutter** => 2em
 - If not declared, the $gutter value would've been => 10px (the default value)
 
 ![sym-mq](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/sym-mq.png)
@@ -317,7 +314,7 @@ asym-grid($col: 1/1, $gutter: 0px, $last: false, $push: false, $pull: false, $fu
 
 - First, we set a **ratio** => 2/10 *(default value is 1/1)*
 - You can set up another ratio everytime you defining a new row
-- Then we set a gutter => 20px *(default value is 0px)*
+- Then we set a **gutter** => 20px *(default value is 0px)*
 - The gutter value can be in 'px', 'em', 'rem' or '%'
 - The gutter value must be the **same** across the different declarations defining a row
 - To remove the margin-right on the **last** element of a row, we add => $last: true
@@ -440,7 +437,7 @@ The HTML :
 
 ![push](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/push.png)
 
-Alternatively, you can also use negative values if you wanna push an element to the left, e.g., $push: -1/12 is the same as => $pull: 1/12
+Alternatively, you can also use negative values if you wanna **push** an element to the left, e.g., $push: -1/12 is the same as => $pull: 1/12
 
 ### <a name="$pull"></a> $pull
 **[:arrow_up: back to top](#top)**
@@ -476,7 +473,7 @@ The HTML :
 
 ![push](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/pull.png)
 
-Alternatively, you can also use negative values if you wanna pull an element to the right, e.g., $pull: -1/12 is the same as => $push: 1/12
+Alternatively, you can also use negative values if you wanna **pull** an element to the right, e.g., $pull: -1/12 is the same as => $push: 1/12
 
 ### <a name="$center"></a> center
 **[:arrow_up: back to top](#top)**
