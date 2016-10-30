@@ -31,12 +31,12 @@ Want the [scss version](https://www.npmjs.com/package/bubbly-grid-sass)?
   - [Last](#last)
 
 ## <a name="installation"></a> Installation
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 `npm install bubbly-grid-stylus`
 
 ## <a name="usage"></a> Usage
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 Here is an exemple of how you can use it with Gulp :
 
