@@ -64,7 +64,7 @@ Let me introduce you to the mixin :
 Behind the scenes (director's cut) :
 
 ```stylus
-sym-grid($col: 1, $gutter: 10px, $stretch: false, $full: false)
+sym-grid($col: 1, $gutter: 10px, $stretch: false)
 ```
 
 Make sure to apply some clearfix mixin to the parent container, since every items will be floated inside :
@@ -296,7 +296,6 @@ Once you have declared '$stretch', you will have to re-set it everytime you set 
     sym-grid(2, 5px, $stretch: true)
 
 ```
-
 ___
 
 ## <a name="asym-grid"></a> Asym Grid (asymmetrical grid)
