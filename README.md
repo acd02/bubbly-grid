@@ -31,7 +31,6 @@ Want the [scss version](https://www.npmjs.com/package/bubbly-grid-sass)?
   - [Last](#last)
 
 ## <a name="installation"></a> Installation
-**[:arrow_up: back to top](#top)**
 
 `npm install bubbly-grid-stylus`
 
@@ -79,7 +78,7 @@ Make sure to apply some clearfix mixin to the parent container, since every item
 ```
 
 ### <a name="$col"></a> $col
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 - number of columns per row
 - *default value is 1*
@@ -115,7 +114,7 @@ The HTML :
 
 
 ### <a name="$gutter"></a> $gutter
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 - width of the gutter (values can be in 'px', 'em', 'rem' or '%')
 - *default value is 10px*
@@ -134,7 +133,7 @@ The HTML :
 ![gutter](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/gutter.png)
 
 ### <a name="$stretch"></a> $stretch
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 - *default value is false*
 
@@ -165,7 +164,7 @@ The HTML :
 ![stretch](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/stretch.png)
 
 ### <a name="$sym-nest"></a> Nesting
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 Note: With a bubbly grid, you don't need no context stuff when nesting, so go wild.
 
@@ -239,7 +238,7 @@ The HTML :
 ![nest](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/nest.png)
 
 ### <a name="sym-media"></a> media-queries
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 **Media queries and new cycles :**
 
@@ -305,7 +304,7 @@ Once you have declared '$stretch', you will have to re-set it everytime you set 
 ___
 
 ## <a name="asym-grid"></a> Asym Grid (asymmetrical grid)
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 Meet the mixin :
 
@@ -408,7 +407,7 @@ The HTML :
 
 
 ### <a name="$push"></a> $push
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 Wanna push that one col to the right so that it's centered? easy :
 
@@ -445,7 +444,7 @@ The HTML :
 Alternatively, you can also use negative values if you wanna push an element to the left, e.g., $push: -1/12 is the same as => $pull: 1/12
 
 ### <a name="$pull"></a> $pull
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 Wanna pull a col to the left? follow me :
 
@@ -481,7 +480,7 @@ The HTML :
 Alternatively, you can also use negative values if you wanna pull an element to the right, e.g., $pull: -1/12 is the same as => $push: 1/12
 
 ### <a name="$center"></a> center
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 Sure, you can center a column by moving it around using `$push` or `$pull`, but you can also simply use this => `asym-center()`
 
@@ -539,7 +538,7 @@ Stylus :
 if you want a col to take 100% of the width below a certain breakpoint, use `asym-grid(1)`, **do not use** `asym-grid($full: true)`, the layout will break.
 
 ### <a name="$asym-nest"></a> Nesting
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 Note: With a bubbly grid, you don't need no context stuff when nesting, so go wild.
 
@@ -605,7 +604,7 @@ The HTML :
 ![asym-nest](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-nest.png)
 
 ### <a name="asym-media"></a> Media-queries
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 Above 760px :
 
@@ -645,7 +644,7 @@ If you get bored of all the pushing and pulling around, use $push or $pull => **
 ![asym-mq-a](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-mq-a.png)
 
 ### <a name="$full"></a> $full
-[back to top](#top)
+**[:arrow_up: back to top](#top)**
 
 - *default value is false*
 - Use it if you want each col to take the full width of its container (e.g., when on mobile devices) :
@@ -660,7 +659,6 @@ If you get bored of all the pushing and pulling around, use $push or $pull => **
 ![asym-full](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-full.png)
 
 ## <a name="last"></a> $last
-[back to top](#top)
 
 Like push and pull, you can also **reset** the 'last' parameter it if you wish. Let's take a look at this stupid grid :
 
@@ -795,3 +793,5 @@ Now, let's get down to business :
 ## The End
 
 Et voilà, I guess this is it...Now it's your turn to build some crazy layouts :)
+
+**[:arrow_up: back to top](#top)**
