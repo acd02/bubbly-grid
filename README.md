@@ -92,6 +92,9 @@ Make sure to apply some clearfix mixin to the parent container, since every item
     sym-grid(4, 20px)
 ```
 
+- You'll get 4 columns per row
+- and a gutter of 20px between each column
+
 The HTML :
 
 ```html
@@ -105,10 +108,6 @@ The HTML :
   </div>
 </div>
 ```
-
-- You'll get 4 columns per row
-- and a gutter of 20px between each column
-
 
 ![col](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/col.png)
 
