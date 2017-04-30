@@ -146,5 +146,7 @@
 /* When you want to center a col */
 @mixin asym-center() {
   float: none;
-  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
+
 }
