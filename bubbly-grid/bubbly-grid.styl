@@ -18,60 +18,56 @@
 
 */
 
-sym-grid(col = 1, gutter = 10px, stretch = false, full = false)
-  clearing = col + 1
+sym-grid($col = 1, $gutter = 10px, $stretch = false)
+  clearing = $col + 1
   float: left
-  width: 'calc(99.99% * 1/%s - (%s - %s * 1/%s))' % (col gutter gutter col)
-  margin-right: gutter
+  width: 'calc(99.99% * 1/%s - (%s - %s * 1/%s))' % ($col $gutter $gutter $col)
+  margin-right: $gutter
   &:nth-of-type(n)
-    margin-right: gutter
+    margin-right: $gutter
     clear: none
-  &:nth-of-type({col}n+{col})
+  &:nth-of-type({$col}n+{$col})
     margin-right: 0
-  &:nth-of-type({col}n+{clearing})
+  &:nth-of-type({$col}n+{clearing})
     clear: left
 
-  if stretch is true
-    for i in (2..col)
-      remainingCols = (col - i) + 1
-      &:nth-of-type({col}n+{i}):last-of-type
-        width: 'calc(99.99% * %s/%s - (%s - %s * %s/%s))' % (remainingCols col gutter gutter remainingCols col)
+  if $stretch is true
+    for i in (2..$col)
+      remainingCols = ($col - i) + 1
+      &:nth-of-type({$col}n+{i}):last-of-type
+        width: 'calc(99.99% * %s/%s - (%s - %s * %s/%s))' % (remainingCols $col $gutter $gutter remainingCols $col)
         margin-right: 0
-      &:nth-of-type({col}n+{clearing}):last-of-type
+      &:nth-of-type({$col}n+{clearing}):last-of-type
         width: 100%
         margin-right: 0
 
-  else if stretch is reset
-    for i in (2..col)
-      remainingCols = (col - i) + 1
-      &:nth-of-type({col}n+{i}):last-of-type
-        width: 'calc(99.99% * 1/%s - (%s - %s * 1/%s))' % (col gutter gutter col)
+  else if $stretch is reset
+    for i in (2..$col)
+      remainingCols = ($col - i) + 1
+      &:nth-of-type({$col}n+{i}):last-of-type
+        width: 'calc(99.99% * 1/%s - (%s - %s * 1/%s))' % ($col $gutter $gutter $col)
         margin-right: 0
-      &:nth-of-type({col}n+{clearing}):last-of-type
-        width: 'calc(99.99% * 1/%s - (%s - %s * 1/%s))' % (col gutter gutter col)
-
-  if full == true
-    width: 100%
+      &:nth-of-type({$col}n+{clearing}):last-of-type
+        width: 'calc(99.99% * 1/%s - (%s - %s * 1/%s))' % ($col $gutter $gutter $col)
 
 
 /* Asym grid (asymmetrical)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-/* This function() is here thanks to IE...which doesn't handle properly the raw ratios we pass within the @mixin asym-grid(col, push...) */
-
+/* The transformRatio function is here thanks to IE...which doesn't handle properly the raw ratios we pass within the @mixin asym-grid(col, push...) */
 transformRatio(ratio) {
   multiplyRatio = ratio * 100
   newRatio = round(multiplyRatio, 5)
   return newRatio
 }
 
-asym-grid(col = 1/1, gutter = 0px, last = false, push = false, pull = false, full = false)
-  newCol = transformRatio(col)
+asym-grid($col = 1/1, $gutter = 0px, $last = false, $push = false, $pull = false, $full = false)
+  newCol = transformRatio($col)
   float: left
-  margin-right: gutter
-  width: 'calc(99.99% * (%s/100) - (%s - %s * (%s/100)))' % (newCol gutter gutter newCol)
+  margin-right: $gutter
+  width: 'calc(99.99% * (%s/100) - (%s - %s * (%s/100)))' % (newCol $gutter $gutter newCol)
 
-  if last is true
+  if $last is true
     float: right
     margin-right: 0
     + *
@@ -80,21 +76,21 @@ asym-grid(col = 1/1, gutter = 0px, last = false, push = false, pull = false, ful
     + *
       clear: none
 
-  if push is not false && push is not reset
-    newPush = transformRatio(push)
+  if $push is not false && $push is not reset
+    newPush = transformRatio($push)
     position: relative
-    left: 'calc(99.99% * (%s/100) + (%s + %s * (%s/100)) - %s )' % (newPush gutter gutter newPush gutter)
-  if push == reset
+    left: 'calc(99.99% * (%s/100) + (%s + %s * (%s/100)) - %s )' % (newPush $gutter $gutter newPush $gutter)
+  if $push == reset
     position: static
 
-  if pull is not false && pull is not reset
-    newPull = transformRatio(pull)
+  if $pull is not false && $pull is not reset
+    newPull = transformRatio($pull)
     position: relative
-    right: 'calc(99.99% * (%s/100) + (%s + %s * (%s/100)) - %s )' % (newPull gutter gutter newPull gutter)
-  if pull == reset
+    right: 'calc(99.99% * (%s/100) + (%s + %s * (%s/100)) - %s )' % (newPull $gutter $gutter newPull $gutter)
+  if $pull == reset
     position: static
 
-  if full is true
+  if $full is true
     position: static
     width: 100%
     margin-right: 0
@@ -104,7 +100,6 @@ asym-grid(col = 1/1, gutter = 0px, last = false, push = false, pull = false, ful
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* When you want to nest multiples symmetrical grids, ex :
-
 .container
   .first-lvl item
     sym-grid(4, 20px)
@@ -118,19 +113,14 @@ asym-grid(col = 1/1, gutter = 0px, last = false, push = false, pull = false, ful
 */
 
 nest($float = left)
-  float $float
-  width 100%
+  float: $float
+  width: 100%
 
 
 /* Centering
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* When you want to center a col */
-
 asym-center()
-  float: left
-  position: relative
-  left: 50%
-  transform: translateX(-50%)
-  + *
-    clear: left
+  float: none
+  margin: 0 auto
