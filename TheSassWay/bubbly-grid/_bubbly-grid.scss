@@ -1,5 +1,4 @@
 
-@import 'skew';
 
 // **********
 // BUBBLY GRID SYSTEM
@@ -18,7 +17,7 @@
 
 */
 
-@mixin sym-grid($col: 1, $gutter: 10px, $stretch: false, $full: false) {
+@mixin sym-grid($col: 1, $gutter: 10px, $stretch: false) {
   float: left;
   $clearing : $col + 1;
   width: calc(99.99% * 1/#{$col} - (#{$gutter} - #{$gutter} * 1/#{$col}));
@@ -59,18 +58,13 @@
       }
     }
   }
-
-  @if $full == true {
-    width: 100%;
-  }
 }
 
 
 /* Asym grid (asymmetrical)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-/* This function() is here thanks to IE...which doesn't handle properly the raw ratios we pass within the @mixin asym-grid($col, $push...) */
-
+/* The transformRatio function is here thanks to IE...which doesn't handle properly the raw ratios we pass within the @mixin asym-grid($col, $push...) */
 @function transformRatio($ratio) {
   $newRatio: $ratio * 100;
   @return $newRatio;
@@ -126,7 +120,6 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 // When you want to nest multiples symmetrical grids, ex :
-
 // .container {
 //   .first-lvl item {
 //     @include sym-grid(4, 20px);
@@ -151,13 +144,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* When you want to center a col */
-
 @mixin asym-center() {
-  float: left;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  + * {
-    clear: left;
-  }
+  float: none;
+  margin: 0 auto;
 }
