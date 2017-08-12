@@ -17,20 +17,26 @@
 
 */
 
-@mixin sym-grid($col: 1, $gutter: 10px, $stretch: false) {
-  float: left;
+@mixin sym-grid($col: 1, $gutter: 10px, $stretch: false, $flex: false) {
+  @if $flex == false {
+    float: left;
+  }
   $clearing : $col + 1;
   width: calc(99.99% * 1/#{$col} - (#{$gutter} - #{$gutter} * 1/#{$col}));
   margin-right: $gutter;
   &:nth-of-type(n) {
     margin-right: $gutter;
-    clear: none;
+    @if $flex == false {
+      clear: none;
+    }
   }
   &:nth-of-type(#{$col}n+#{$col}) {
     margin-right: 0;
   }
   &:nth-of-type(#{$col}n+#{$clearing}) {
-    clear: left;
+    @if $flex == false {
+      clear: left;
+    }
   }
 
   @if $stretch == true {
@@ -148,5 +154,4 @@
   float: none;
   margin-right: auto;
   margin-left: auto;
-
 }
