@@ -10,13 +10,13 @@ ___
 
 Wanna see a [demo page](https://alx-l.github.io/bubbly-grid/)?
 
-Available on [npm](https://www.npmjs.com/package/bubbly-grid-stylus).
 
 Want the [scss version](https://www.npmjs.com/package/bubbly-grid-sass)?
 
 - [Installation](#installation)
 - [Usage](#usage)
 - Symmetrical grid
+  - [Flex](#$flex)
   - [Columns](#$col)
   - [Gutters](#$gutter)
   - [Stretch](#$stretch)
@@ -65,7 +65,7 @@ Let me introduce you to the mixin :
 Behind the scenes (director's cut) :
 
 ```stylus
-sym-grid($col: 1, $gutter: 10px, $stretch: false)
+sym-grid($col: 1, $gutter: 10px, $stretch: false, $full: false)
 ```
 
 Make sure to apply some clearfix mixin to the parent container, since every items will be floated inside :
@@ -76,6 +76,20 @@ Make sure to apply some clearfix mixin to the parent container, since every item
 
   .item
     sym-grid(whatever)
+```
+
+### <a name="$flex"></a> $flex
+**[:arrow_up: back to top](#top)**
+
+- set this flag to `true` if you are inside a flex container
+- it will prevent unnecessary code bloat (like floating, clearing and whatnot)
+
+```stylus
+.container
+  display: flex
+
+  .item
+    sym-grid(4, 20px, $flex: true)
 ```
 
 ### <a name="$col"></a> $col
@@ -297,6 +311,7 @@ Once you have declared '$stretch', you will have to re-set it everytime you set 
     sym-grid(2, 5px, $stretch: true)
 
 ```
+
 ___
 
 ## <a name="asym-grid"></a> Asym Grid (asymmetrical grid)
@@ -656,7 +671,7 @@ If you get bored of all the pushing and pulling around, use $push or $pull => **
 
 ## <a name="last"></a> $last
 
-Like push and pull, you can also **reset** the 'last' parameter it if you wish. Let's take a look at this stupid grid :
+Like $push and $pull, you can also **reset** the '$last' parameter it if you wish. Let's take a look at this stupid grid :
 
 ```stylus
 /* -- first row -- */
