@@ -18,18 +18,21 @@
 
 */
 
-sym-grid($col = 1, $gutter = 10px, $stretch = false)
+sym-grid($col = 1, $gutter = 10px, $stretch = false, $flex = false)
   clearing = $col + 1
-  float: left
+  if $flex is false
+    float: left
   width: 'calc(99.99% * 1/%s - (%s - %s * 1/%s))' % ($col $gutter $gutter $col)
   margin-right: $gutter
   &:nth-of-type(n)
     margin-right: $gutter
-    clear: none
+    if $flex is false
+      clear: none
   &:nth-of-type({$col}n+{$col})
     margin-right: 0
   &:nth-of-type({$col}n+{clearing})
-    clear: left
+    if $flex is false
+      clear: left
 
   if $stretch is true
     for i in (2..$col)
@@ -123,4 +126,5 @@ nest($float = left)
 /* When you want to center a col */
 asym-center()
   float: none
-  margin: 0 auto
+  margin-right: auto
+  margin-left: auto
