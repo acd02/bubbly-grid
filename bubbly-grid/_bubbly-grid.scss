@@ -17,37 +17,27 @@
 
 */
 
-@mixin sym-grid($col: 1, $gutter: 10px, $stretch: false, $flex: false) {
-  @if $flex == false {
-    float: left;
-  }
+@mixin sym-grid($col: 1, $gutter: 10px, $stretch: false) {
+
   $clearing : $col + 1;
   width: calc(99.99% * 1/#{$col} - (#{$gutter} - #{$gutter} * 1/#{$col}));
   margin-right: $gutter;
   &:nth-of-type(n) {
     margin-right: $gutter;
-    @if $flex == false {
-      clear: none;
-    }
   }
   &:nth-of-type(#{$col}n+#{$col}) {
     margin-right: 0;
-  }
-  &:nth-of-type(#{$col}n+#{$clearing}) {
-    @if $flex == false {
-      clear: left;
-    }
   }
 
   @if $stretch == true {
     @for $i from 2 through $col {
       $remainingCols : ($col - $i) + 1;
       &:nth-of-type(#{$col}n+#{$i}):last-of-type {
-        width: calc(99.99% * #{$remainingCols}/#{$col} - (#{$gutter} - #{$gutter} * #{$remainingCols}/#{$col}));
+        flex-grow: 1;
         margin-right: 0;
       }
       &:nth-of-type(#{$col}n+#{$clearing}):last-of-type {
-        width: 100%;
+        flex-grow: 1;
         margin-right: 0;
       }
     }
@@ -56,11 +46,10 @@
     @for $i from 2 through $col {
       $remainingCols : ($col - $i) + 1;
       &:nth-of-type(#{$col}n+#{$i}):last-of-type {
-        width: calc(99.99% * 1/#{$col} - (#{$gutter} - #{$gutter} * 1/#{$col}));
-        margin-right: 0;
+        flex-grow: 0;
       }
       &:nth-of-type(#{$col}n+#{$clearing}):last-of-type {
-        width: calc(99.99% * 1/#{$col} - (#{$gutter} - #{$gutter} * 1/#{$col}));
+        flex-grow: 0;
       }
     }
   }
@@ -77,23 +66,23 @@
 }
 
 
-@mixin asym-grid($col: 1/1, $gutter: 0px, $last: false, $push: false, $pull: false, $full: false) {
+@mixin asym-grid($col: 1/1, $gutter: 0px, $last: false, $centered: false, $push: false, $pull: false) {
   $newCol: call(transformRatio, $col); // coz of IE...
-  float: left;
   margin-right: $gutter;
   width: calc(99.99% * (#{$newCol}/100) - (#{$gutter} - #{$gutter} * (#{$newCol}/100)));
 
   @if $last == true {
-    float: right;
-    margin-right: 0;
-    + * {
-      clear: both;
-    }
+    margin-right: auto;
   }
-  @if $last == reset {
-    + * {
-      clear: none;
-    }
+
+  @if $centered == true {
+    margin-left: calc(99.99% * (#{$newCol}/100) / 2);
+    margin-right: calc(99.99% * (#{$newCol}/100) / 2);
+  }
+
+  @if $centered == reset {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @if $push != false and $push != reset {
@@ -113,45 +102,4 @@
   @if $pull == reset {
     position: static;
   }
-
-  @if $full == true {
-    position: static;
-    width: 100%;
-    margin-right: 0;
-  }
-}
-
-
-/* Nesting
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-// When you want to nest multiples symmetrical grids, ex :
-// .container {
-//   .first-lvl item {
-//     @include sym-grid(4, 20px);
-//   }
-//
-//   .second-lvl {
-//   @include nest();
-//   }
-//
-//   .second-lvl item {
-//     @include sym-grid(2, 10px);
-//   }
-// }
-
-@mixin nest($float: left) {
-  float: $float;
-  width: 100%;
-}
-
-
-/* Centering
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-/* When you want to center a col */
-@mixin asym-center() {
-  float: none;
-  margin-right: auto;
-  margin-left: auto;
 }
