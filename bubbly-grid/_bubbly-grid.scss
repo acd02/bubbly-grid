@@ -20,7 +20,13 @@
 @mixin sym-grid($col: 1, $gutter: 10px, $stretch: false) {
 
   $clearing : $col + 1;
-  width: calc(99.99% * 1/#{$col} - (#{$gutter} - #{$gutter} * 1/#{$col}));
+
+  @if $gutter == 0 {
+    width: calc(99.99% * 1/#{$col});
+  } @else {
+    width: calc(99.99% * 1/#{$col} - (#{$gutter} - #{$gutter} * 1/#{$col}));
+  }
+
   margin-right: $gutter;
   &:nth-of-type(n) {
     margin-right: $gutter;
@@ -66,10 +72,15 @@
 }
 
 
-@mixin asym-grid($col: 1/1, $gutter: 0px, $last: false, $linebreak: false, $push: false, $pull: false) {
+@mixin asym-grid($col: 1/1, $gutter: 0, $last: false, $linebreak: false, $push: false, $pull: false) {
   $newCol: call(transformRatio, $col); // coz of IE...
   margin-right: $gutter;
-  width: calc(99.99% * (#{$newCol}/100) - (#{$gutter} - #{$gutter} * (#{$newCol}/100)));
+
+  @if $gutter == 0 {
+    width: calc(99.99% * (#{$newCol}/100));
+  } @else {
+    width: calc(99.99% * (#{$newCol}/100) - (#{$gutter} - #{$gutter} * (#{$newCol}/100)));
+  }
 
   @if $last == true {
     margin-right: auto;
