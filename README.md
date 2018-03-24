@@ -8,7 +8,7 @@ Made with calc() and Flexbox, so it will support the latest versions of Chrome, 
 
 ___
 
-Wanna see a [demo page](https://alx-l.github.io/bubbly-grid/)?
+Wanna see some [demos](https://codepen.io/collection/DKNwJZ/)?
 
 
 - [Installation](#installation)
