@@ -21,6 +21,7 @@ Wanna see some [demos](https://codepen.io/collection/DKNwJZ/)?
 - [Asymmetrical grid](#asym-grid)
   - [Push](#$push)
   - [Pull](#$pull)
+  - [Line break](#line-break)
   - [Media-queries](#asym-media)
 
 ## <a name="installation"></a> Installation
@@ -383,6 +384,11 @@ The HTML :
 ![push](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/pull.png)
 
 Alternatively, you can also use negative values if you wanna **pull** an element to the right, e.g., `$pull: -1/12` is the same as `$push: 1/12`
+
+### <a name="line-break"></a> Line break
+**[:arrow_up: back to top](#top)**
+
+If you wish to have an element to be by itself on his own line, you can use `$linebreak: true`
 
 
 ### <a name="asym-media"></a> Media-queries
