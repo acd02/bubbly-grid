@@ -10,10 +10,12 @@ ___
 
 Wanna see some [demos](https://codepen.io/collection/DKNwJZ/)?
 
+[npm](https://www.npmjs.com/package/bubbly-grid-sass)
+
 
 - [Installation](#installation)
 - [Usage](#usage)
-- Symmetrical grid
+- [Symmetrical grid](#sym-grid)
   - [Columns](#$col)
   - [Gutters](#$gutter)
   - [Stretch](#$stretch)
@@ -43,7 +45,7 @@ How to import it :
 
 ```
 
-## Sym Grid (symmetrical only)
+### <a name="sym-grid"></a> Sym Grid (symmetrical only)
 
 Let me introduce you to the mixin :
 
@@ -201,7 +203,7 @@ Meet the mixin :
 Behind the scenes :
 
 ```scss
-@mixin asym-grid($col: 1/1, $gutter: 0px, $last: false, $push: false, $pull: false, $centered: false)
+@mixin asym-grid($col: 1/1, $gutter: 0px, $last: false, $push: false, $pull: false, $linebreak: false)
 ```
 
 - First, we set a **ratio**: `2/10` (default value is 1/1)
@@ -209,7 +211,6 @@ Behind the scenes :
 - Then we set a **gutter**: `20px` (default value is 0px)
 - The gutter value can be in 'px', 'em', 'rem' or '%'
 - The gutter value must be the **same** across the different declarations defining a row
-- to center a col we use: `$centered: true`
 - To remove the margin-right on the **last** element of a row, we add: `$last: true`
 
 Let's make an asymmetrical grid :
