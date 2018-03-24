@@ -66,7 +66,7 @@
 }
 
 
-@mixin asym-grid($col: 1/1, $gutter: 0px, $last: false, $centered: false, $push: false, $pull: false) {
+@mixin asym-grid($col: 1/1, $gutter: 0px, $last: false, $linebreak: false, $push: false, $pull: false) {
   $newCol: call(transformRatio, $col); // coz of IE...
   margin-right: $gutter;
   width: calc(99.99% * (#{$newCol}/100) - (#{$gutter} - #{$gutter} * (#{$newCol}/100)));
@@ -75,14 +75,8 @@
     margin-right: auto;
   }
 
-  @if $centered == true {
-    margin-left: calc(99.99% * (#{$newCol}/100) / 2);
-    margin-right: calc(99.99% * (#{$newCol}/100) / 2);
-  }
-
-  @if $centered == reset {
-    margin-left: auto;
-    margin-right: auto;
+  @if $linebreak == true {
+    margin-right: calc(#{$newCol} * 1%);
   }
 
   @if $push != false and $push != reset {
