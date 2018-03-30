@@ -8,6 +8,8 @@ Made with calc() and Flexbox, so it will support the latest versions of Chrome, 
 
 ___
 
+Wanna see some nicer [doc](https://github.com/Alx-l/bubbly-grid/blob/master/README.html)?
+
 Wanna see some [demos](https://codepen.io/collection/DKNwJZ/)?
 
 [npm](https://www.npmjs.com/package/bubbly-grid-sass)
@@ -16,14 +18,14 @@ Wanna see some [demos](https://codepen.io/collection/DKNwJZ/)?
 - [Installation](#installation)
 - [Usage](#usage)
 - [Symmetrical grid](#sym-grid)
-  - [Columns](#$col)
-  - [Gutters](#$gutter)
-  - [Stretch](#$stretch)
+  - [$col](#$col)
+  - [$gutter](#$gutter)
+  - [$stretch](#$stretch)
   - [Media-queries](#sym-media)
 - [Asymmetrical grid](#asym-grid)
-  - [Push](#$push)
-  - [Pull](#$pull)
-  - [Line break](#line-break)
+  - [$push](#$push)
+  - [$pull](#$pull)
+  - [$linebreak](#line-break)
   - [Media-queries](#asym-media)
 
 ## <a name="installation"></a> Installation
@@ -45,7 +47,7 @@ How to import it :
 
 ```
 
-### <a name="sym-grid"></a> Sym Grid (symmetrical only)
+## <a name="sym-grid"></a> Sym Grid (symmetrical only)
 
 Let me introduce you to the mixin :
 
@@ -69,7 +71,7 @@ Make sure the parent container is set to display `flex` :
 }
 ```
 
-### <a name="$col"></a> $col
+## <a name="$col"></a> $col
 **[:arrow_up: back to top](#top)**
 
 - number of columns per row
@@ -105,7 +107,7 @@ The HTML :
 ![col](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/col.png)
 
 
-### <a name="$gutter"></a> $gutter
+## <a name="$gutter"></a> $gutter
 **[:arrow_up: back to top](#top)**
 
 - width of the **gutter** (values can be in 'px', 'em', 'rem' or '%')
@@ -122,7 +124,7 @@ The HTML :
 
 ![gutter](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/gutter.png)
 
-### <a name="$stretch"></a> $stretch
+## <a name="$stretch"></a> $stretch
 **[:arrow_up: back to top](#top)**
 
 - *default value is false*
@@ -153,7 +155,7 @@ The HTML :
 ![stretch](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/stretch.png)
 
 
-### <a name="sym-media"></a> media-queries
+## <a name="sym-media"></a> media-queries
 **[:arrow_up: back to top](#top)**
 
 **Media queries and new cycles :**
@@ -206,12 +208,11 @@ Behind the scenes :
 @mixin asym-grid($col: 1/1, $gutter: 0px, $last: false, $push: false, $pull: false, $linebreak: false)
 ```
 
-- First, we set a **ratio**: `2/10` (default value is 1/1)
 - You can set up another ratio everytime you defining a new row
-- Then we set a **gutter**: `20px` (default value is 0px)
 - The gutter value can be in 'px', 'em', 'rem' or '%'
 - The gutter value must be the **same** across the different declarations defining a row
 - To remove the margin-right on the **last** element of a row, we add: `$last: true`
+- Make sure the parent container is set to display `flex`
 
 Let's make an asymmetrical grid :
 
@@ -307,7 +308,7 @@ The HTML :
 ![asym-grid](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-grid.png)
 
 
-### <a name="$push"></a> $push
+## <a name="$push"></a> $push
 **[:arrow_up: back to top](#top)**
 
 Wanna push that one col to the right so that it's centered? easy :
@@ -347,7 +348,7 @@ The HTML :
 
 Alternatively, you can also use negative values if you wanna **push** an element to the left, e.g., `$push: -1/12` is the same as `$pull: 1/12`
 
-### <a name="$pull"></a> $pull
+## <a name="$pull"></a> $pull
 **[:arrow_up: back to top](#top)**
 
 Wanna pull a col to the left? :
@@ -386,13 +387,13 @@ The HTML :
 
 Alternatively, you can also use negative values if you wanna **pull** an element to the right, e.g., `$pull: -1/12` is the same as `$push: 1/12`
 
-### <a name="line-break"></a> Line break
+## <a name="line-break"></a> $linebreak
 **[:arrow_up: back to top](#top)**
 
 If you wish to have an element to be by itself on his own line, you can use `$linebreak: true`
 
 
-### <a name="asym-media"></a> Media-queries
+## <a name="asym-media"></a> Media-queries
 **[:arrow_up: back to top](#top)**
 
 Above 760px :
