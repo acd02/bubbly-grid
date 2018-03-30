@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bubblyGrid.md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+
+      <ul>
+        <li>
+          <a href="#a-nametopa-bubbly-grid-system"> Bubbly Grid System</a>
+          <ul>
+            <li>
+              <a href="#a-nameinstallationa-installation"> Installation</a>
+            </li>
+            <li>
+              <a href="#a-nameusagea-usage"> Usage</a>
+            </li>
+            <li>
+              <a href="#a-namesym-grida-symmetrical-grid"> Symmetrical Grid</a>
+            </li>
+            <li>
+              <a href="#a-namecola-col"> $col</a>
+            </li>
+            <li>
+              <a href="#a-nameguttera-gutter"> $gutter</a>
+            </li>
+            <li>
+              <a href="#a-namestretcha-stretch"> $stretch</a>
+            </li>
+            <li>
+              <a href="#a-namesym-mediaa-media-queries"> Media-queries</a>
+            </li>
+            <li>
+              <a href="#a-nameasym-grida-asymmetrical-grid"> Asymmetrical Grid</a>
+            </li>
+            <li>
+              <a href="#a-namepusha-push"> $push</a>
+            </li>
+            <li>
+              <a href="#a-namepulla-pull"> $pull</a>
+            </li>
+            <li>
+              <a href="#a-nameline-breaka-linebreak"> $linebreak</a>
+            </li>
+            <li>
+              <a href="#a-nameasym-mediaa-media-queries"> Media-queries</a>
+            </li>
+            <li>
+              <a href="#the-end">The End</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="a-nametopa-bubbly-grid-system">
+        <a></a> Bubbly Grid System</h1>
+      <p>This is not another
+        <strong>12</strong>-column grid system, this is an
+        <strong>up-to-you</strong>-column grid system.</p>
+      <p>This is also not an HTML grid system, meaning you’re gonna be able to keep your markup clean and tidy.</p>
+      <p>Made with calc() and Flexbox, so it will support the latest versions of Chrome, Firefox, Safari, Opera (not opera mini)
+        &amp; IE 11+.</p>
+      <hr>
+      <p>Wanna see some
+        <a href="https://codepen.io/collection/DKNwJZ/">demos</a>?</p>
+      <p>
+        <a href="https://www.npmjs.com/package/bubbly-grid-sass">npm</a>
+      </p>
+      <h2 id="a-nameinstallationa-installation">
+        <a></a> Installation</h2>
+      <p>
+        <code>npm install bubbly-grid-sass</code>
+      </p>
+      <h2 id="a-nameusagea-usage">
+        <a></a> Usage</h2>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+      <p>How to import it :</p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token comment">// index.scss</span>
+
+<span class="token keyword">@import</span> <span class="token string">'~bubbly-grid-sass/bubbly-grid/index.scss'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">@import</span> <span class="token string">'partials/foo'</span><span class="token punctuation">;</span>
+<span class="token keyword">@import</span> <span class="token string">'partials/baz'</span><span class="token punctuation">;</span>
+
+</code></pre>
+      <h2 id="a-namesym-grida-symmetrical-grid">
+        <a></a> Symmetrical Grid</h2>
+      <p>Let me introduce you to the mixin :</p>
+      <p>
+        <code>@include sym-grid(4, 20px)</code>
+      </p>
+      <p>Behind the scenes :</p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token keyword">@mixin</span> <span class="token function">sym-grid</span><span class="token punctuation">(</span><span class="token property"><span class="token variable">$col</span></span><span class="token punctuation">:</span> <span class="token number">1</span>, <span class="token property"><span class="token variable">$gutter</span></span><span class="token punctuation">:</span> <span class="token number">10</span>px, <span class="token property"><span class="token variable">$stretch</span></span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+</code></pre>
+      <p>Make sure the parent container is set to display
+        <code>flex</code> :</p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.container </span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">sym-grid</span><span class="token punctuation">(</span>whatever<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <h2 id="a-namecola-col">
+        <a></a> $col</h2>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+      <ul>
+        <li>number of columns per row</li>
+        <li>
+          <em>default value is 1</em>
+        </li>
+      </ul>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.container </span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">sym-grid</span><span class="token punctuation">(</span><span class="token number">4</span>, <span class="token number">20</span>px<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <ul>
+        <li>You’ll get 4 columns per row</li>
+        <li>and a gutter of 20px between each column</li>
+      </ul>
+      <p>The HTML :</p>
+      <pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    item 01
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  ...
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    item 08
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <p>
+        <img src="https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/col.png" alt="col">
+      </p>
+      <h2 id="a-nameguttera-gutter">
+        <a></a> $gutter</h2>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+      <ul>
+        <li>width of the
+          <strong>gutter</strong> (values can be in ‘px’, ‘em’, ‘rem’ or ‘%’)</li>
+        <li>
+          <em>default value is 10px</em>
+        </li>
+      </ul>
+      <pre class=" language-scss"><code class="prism  language-scss">
+<span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">sym-grid</span><span class="token punctuation">(</span><span class="token number">3</span>, <span class="token number">2</span>em<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <ul>
+        <li>You’ll get 3 columns per row</li>
+        <li>You’ll get a gutter of 2em between each column</li>
+      </ul>
+      <p>
+        <img src="https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/gutter.png" alt="gutter">
+      </p>
+      <h2 id="a-namestretcha-stretch">
+        <a></a> $stretch</h2>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+      <ul>
+        <li>
+          <p>
+            <em>default value is false</em>
+          </p>
+        </li>
+        <li>
+          <p>Use it when you want the last item in the row to take the full width of the remaining space :</p>
+        </li>
+      </ul>
+      <pre class=" language-scss"><code class="prism  language-scss">
+<span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">sym-grid</span><span class="token punctuation">(</span><span class="token number">3</span>, <span class="token number">2</span>em, <span class="token property"><span class="token variable">$stretch</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <p>The HTML :</p>
+      <pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    item 01
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  ...
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    item 05
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <p>
+        <img src="https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/stretch.png" alt="stretch">
+      </p>
+      <h2 id="a-namesym-mediaa-media-queries">
+        <a></a> Media-queries</h2>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+      <p>
+        <strong>Media queries and new cycles :</strong>
+      </p>
+      <p>Let’s say that when the window width gets below 420px, you wanna change the number of cols per row :</p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">sym-grid</span><span class="token punctuation">(</span><span class="token number">4</span>, <span class="token number">20</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@media</span> screen <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">420</span>px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">sym-grid</span><span class="token punctuation">(</span><span class="token number">2</span>, <span class="token number">2</span>em, <span class="token property"><span class="token variable">$stretch</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <ul>
+        <li>First, we set a new cycle with:
+          <code>2</code>
+        </li>
+        <li>Then, we set a new value for the
+          <strong>gutter</strong>:
+          <code>2em</code>
+        </li>
+        <li>If not declared, the $gutter value would’ve been:
+          <code>10px</code> (the default value)</li>
+      </ul>
+      <p>
+        <img src="https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/sym-mq.png" alt="sym-mq">
+      </p>
+      <p>
+        <strong>Media queries and stretch :</strong>
+      </p>
+      <p>Let’s say that when the window width gets below 420px, you wanna get rid of the stretching stuff :</p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">sym-grid</span><span class="token punctuation">(</span><span class="token number">4</span>, <span class="token number">20</span>px, <span class="token property"><span class="token variable">$stretch</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token atrule"><span class="token rule">@media</span> screen <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">420</span>px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">sym-grid</span><span class="token punctuation">(</span><span class="token number">2</span>, <span class="token number">20</span>px, <span class="token property"><span class="token variable">$stretch</span></span><span class="token punctuation">:</span> reset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+      <hr>
+      <h2 id="a-nameasym-grida-asymmetrical-grid">
+        <a></a> Asymmetrical Grid</h2>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+      <p>Meet the mixin :</p>
+      <p>
+        <code>@include asym-grid(2/10, 20px)</code>
+      </p>
+      <p>Behind the scenes :</p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token keyword">@mixin</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token property"><span class="token variable">$col</span></span><span class="token punctuation">:</span> <span class="token number">1</span>/<span class="token number">1</span>, <span class="token property"><span class="token variable">$gutter</span></span><span class="token punctuation">:</span> <span class="token number">0</span>px, <span class="token property"><span class="token variable">$last</span></span><span class="token punctuation">:</span> <span class="token boolean">false</span>, <span class="token property"><span class="token variable">$push</span></span><span class="token punctuation">:</span> <span class="token boolean">false</span>, <span class="token property"><span class="token variable">$pull</span></span><span class="token punctuation">:</span> <span class="token boolean">false</span>, <span class="token property"><span class="token variable">$linebreak</span></span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+</code></pre>
+      <ul>
+        <li>You can set up another ratio every time you are defining a new row</li>
+        <li>The gutter value can be in ‘px’, ‘em’, ‘rem’ or ‘%’</li>
+        <li>The gutter value must be the
+          <strong>same</strong> across the different declarations defining a row</li>
+        <li>To remove the margin-right on the
+          <strong>last</strong> element of a row, we add:
+          <code>$last: true</code>
+        </li>
+        <li>Make sure the parent container is set to display
+          <code>flex</code>
+        </li>
+      </ul>
+      <p>Let’s make an asymmetrical grid :</p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.container </span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* -- first row -- */</span>
+
+<span class="token selector">.LeftSide </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">2</span>/<span class="token number">10</span>, <span class="token number">20</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.InBetween </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">6</span>/<span class="token number">10</span>, <span class="token number">20</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.RightSide </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">2</span>/<span class="token number">10</span>, <span class="token number">20</span>px, <span class="token property"><span class="token variable">$last</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">/* -- second row -- */</span>
+
+<span class="token selector">.left-side </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">10</span>/<span class="token number">20</span>, <span class="token number">10</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.in-between </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">7</span>/<span class="token number">20</span>, <span class="token number">10</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.right-side </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">3</span>/<span class="token number">20</span>, <span class="token number">10</span>px, <span class="token property"><span class="token variable">$last</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">/* -- third row -- */</span>
+
+<span class="token selector">.left__side </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">3</span>/<span class="token number">12</span>, <span class="token number">2</span>em<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token selector">.in__between </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">3</span>/<span class="token number">12</span>, <span class="token number">2</span>em<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.right__side </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">6</span>/<span class="token number">12</span>, <span class="token number">2</span>em, <span class="token property"><span class="token variable">$last</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+      <p>The HTML :</p>
+      <pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- first row --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>LeftSide<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    LeftSide
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>InBetween<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    InBetween
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>RightSide<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    RightSide
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- second row --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>left-side<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    left-side
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>in-between<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    in-between
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>right-side<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    right-side
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token comment">&lt;!-- third row --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>left__side<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    left__side
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>in__between<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    in__between
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>right__side<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    right__side
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <p>
+        <img src="https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-grid.png" alt="asym-grid">
+      </p>
+      <h2 id="a-namepusha-push">
+        <a></a> $push</h2>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+      <p>Wanna push that one col to the right so that it’s centered? easy :</p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.one </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">4</span>/<span class="token number">12</span>, <span class="token number">20</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.two </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">2</span>/<span class="token number">12</span>, <span class="token number">20</span>px, <span class="token property"><span class="token variable">$push</span></span><span class="token punctuation">:</span> <span class="token number">1</span>/<span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.three </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">4</span>/<span class="token number">12</span>, <span class="token number">20</span>px, <span class="token property"><span class="token variable">$last</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+      <p>The HTML :</p>
+      <pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>one<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    one
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>two<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    two
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>three<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    three
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <p>
+        <img src="https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/push.png" alt="push">
+      </p>
+      <p>Alternatively, you can also use negative values if you wanna
+        <strong>push</strong> an element to the left, e.g.,
+        <code>$push: -1/12</code> is the same as
+        <code>$pull: 1/12</code>
+      </p>
+      <h2 id="a-namepulla-pull">
+        <a></a> $pull</h2>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+      <p>Wanna pull a col to the left? :</p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.one </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">4</span>/<span class="token number">12</span>, <span class="token number">20</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.two </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">2</span>/<span class="token number">12</span>, <span class="token number">20</span>px, <span class="token property"><span class="token variable">$push</span></span><span class="token punctuation">:</span> <span class="token number">6</span>/<span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.three </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">4</span>/<span class="token number">12</span>, <span class="token number">20</span>px, <span class="token property"><span class="token variable">$pull</span></span><span class="token punctuation">:</span> <span class="token number">3</span>/<span class="token number">12</span>, <span class="token property"><span class="token variable">$last</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+      <p>The HTML :</p>
+      <pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>one<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    one
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>two<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    two
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>three<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    three
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+      <p>
+        <img src="https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/pull.png" alt="push">
+      </p>
+      <p>Alternatively, you can also use negative values if you wanna
+        <strong>pull</strong> an element to the right, e.g.,
+        <code>$pull: -1/12</code> is the same as
+        <code>$push: 1/12</code>
+      </p>
+      <h2 id="a-nameline-breaka-linebreak">
+        <a></a> $linebreak</h2>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+      <p>If you wish to have an element to be by itself on his own line, you can use
+        <code>$linebreak: true</code>
+      </p>
+      <h2 id="a-nameasym-mediaa-media-queries">
+        <a></a> Media-queries</h2>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+      <p>Above 760px :</p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.one </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">2</span>/<span class="token number">10</span>, <span class="token number">20</span>px, <span class="token property"><span class="token variable">$push</span></span><span class="token punctuation">:</span> <span class="token number">8</span>/<span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.two </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">6</span>/<span class="token number">10</span>, <span class="token number">20</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.three </span><span class="token punctuation">{</span>
+  <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">2</span>/<span class="token number">10</span>, <span class="token number">20</span>px, <span class="token property"><span class="token variable">$pull</span></span><span class="token punctuation">:</span> <span class="token number">8</span>/<span class="token number">10</span>, <span class="token property"><span class="token variable">$last</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+      <p>
+        <img src="https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-mq-b.png" alt="asym-mq-b">
+      </p>
+      <p>Below 760px :</p>
+      <p>If you get bored of all the pushing and pulling around, use
+        <code>$push: reset</code> or
+        <code>$pull: reset</code>
+      </p>
+      <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.one </span><span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@media</span> screen <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">760</span>px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">1</span>/<span class="token number">3</span>, <span class="token number">20</span>px, <span class="token property"><span class="token variable">$push</span></span><span class="token punctuation">:</span> reset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.two </span><span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@media</span> screen <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">760</span>px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+   <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">1</span>/<span class="token number">3</span>, <span class="token number">20</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.three </span><span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@media</span> screen <span class="token operator">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">760</span>px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token keyword">@include</span> <span class="token function">asym-grid</span><span class="token punctuation">(</span><span class="token number">1</span>/<span class="token number">3</span>, <span class="token number">10</span>px, <span class="token property"><span class="token variable">$pull</span></span><span class="token punctuation">:</span> reset, <span class="token property"><span class="token variable">$last</span></span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+      <p>
+        <img src="https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-mq-a.png" alt="asym-mq-a">
+      </p>
+      <h2 id="the-end">The End</h2>
+      <p>Et voilà, I guess this is it…Now it’s your turn to build some crazy layouts :)</p>
+      <p>
+        <strong>
+          <a href="#top">⬆️ back to top</a>
+        </strong>
+      </p>
+
+    </div>
+  </div>
+</body>
+
+</html>
