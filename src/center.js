@@ -14,8 +14,14 @@ module.exports = function center(decl, rule) {
     `);
   }
 
-  rule.append(`margin-left: calc(((100 - ${ asymRatio }) * 1%) / 2)`)
-  rule.append(`margin-right: calc(((100 - ${ asymRatio }) * 1%) / 2)`)
+  if (decl.value === 'true') {
+    rule.append(`margin-left: calc(((100 - ${ asymRatio }) * 1%) / 2)`)
+    rule.append(`margin-right: calc(((100 - ${ asymRatio }) * 1%) / 2)`)
+  }
+
+  if (decl.value === 'false') {
+    rule.append(`margin-left: auto`)
+  }
 
   rule.removeChild(decl)
 }
