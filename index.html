@@ -76,8 +76,6 @@
       <hr>
       <p>Wanna see some nicer
         <a href="https://alx-l.github.io/bubbly-grid/">doc</a>?</p>
-      <p>Wanna see some
-        <a href="https://codepen.io/collection/DKNwJZ/">demos</a>?</p>
       <p>
         <a href="https://www.npmjs.com/package/postcss-bubbly-grid">npm</a>
       </p>
@@ -150,6 +148,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
 </code></pre>
       <h2 id="a-namesym-grida-sym-grid-symmetrical-only">
         <a></a> Sym Grid (symmetrical only)</h2>
+      <p>
+        <code>sym-grid: [col: number] [gutter?: value&lt;px | em | rem&gt;] [stretch?: 'stretch | 'nostretch]</code>
+      </p>
       <p>Make sure the parent container is set to display
         <code>flex</code> :</p>
       <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.container </span><span class="token punctuation">{</span>
@@ -225,14 +226,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         </strong>
       </p>
       <ul>
-        <li>
-          <p>
-            <em>default value is false</em>
-          </p>
-        </li>
-        <li>
-          <p>Use it when you want the last item in the row to take the full width of the remaining space :</p>
-        </li>
+        <li>Use it when you want the last item in the row to take the full width of the remaining space :</li>
       </ul>
       <pre class=" language-scss"><code class="prism  language-scss">
 <span class="token selector">.item </span><span class="token punctuation">{</span>
@@ -304,6 +298,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         <strong>
           <a href="#top">⬆️ back to top</a>
         </strong>
+      </p>
+      <p>
+        <code>asym-grid: [ratio: &lt;number / number&gt;] [gutter?: value&lt;px | em | rem&gt;] [last?: 'last]</code>
       </p>
       <ul>
         <li>You can set up another ratio everytime you defining a new row</li>
@@ -414,6 +411,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
           <a href="#top">⬆️ back to top</a>
         </strong>
       </p>
+      <p>
+        <code>push: [ratio: &lt;number / number&gt;] | [reset: 'reset']</code>
+      </p>
       <p>Wanna push that one col to the right so that it’s centered? easy :</p>
       <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.one </span><span class="token punctuation">{</span>
   <span class="token property">asym-grid</span><span class="token punctuation">:</span> <span class="token number">4</span>/<span class="token number">12</span> <span class="token number">20</span>px<span class="token punctuation">;</span>
@@ -457,6 +457,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
           <a href="#top">⬆️ back to top</a>
         </strong>
       </p>
+      <p>
+        <code>pull: [ratio: &lt;number / number&gt;] | [reset: 'reset']</code>
+      </p>
       <p>Wanna pull a col to the left? :</p>
       <pre class=" language-scss"><code class="prism  language-scss"><span class="token selector">.one </span><span class="token punctuation">{</span>
   <span class="token property">asym-grid</span><span class="token punctuation">:</span> <span class="token number">4</span>/<span class="token number">12</span> <span class="token number">20</span>px<span class="token punctuation">;</span>
@@ -499,6 +502,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         <strong>
           <a href="#top">⬆️ back to top</a>
         </strong>
+      </p>
+      <p>
+        <code>center: [boolean];</code>
       </p>
       <p>If you wish to have an element centered and by itself on his own line, you can use
         <code>center: true;</code>
