@@ -12,8 +12,6 @@ ___
 
 Wanna see some nicer [doc](https://alx-l.github.io/bubbly-grid/)?
 
-Wanna see some [demos](https://codepen.io/collection/DKNwJZ/)?
-
 [npm](https://www.npmjs.com/package/postcss-bubbly-grid)
 
 
