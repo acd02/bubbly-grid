@@ -53,6 +53,8 @@ module.exports = {
 
 ## <a name="sym-grid"></a> Sym Grid (symmetrical only)
 
+`sym-grid: [col: number] [gutter?: value<px | em | rem>] [stretch?: 'stretch | 'nostretch]`
+
 Make sure the parent container is set to display `flex` :
 
 ```scss
@@ -116,8 +118,6 @@ The HTML :
 
 ## <a name="stretch"></a> Stretch
 **[:arrow_up: back to top](#top)**
-
-- *default value is false*
 
 - Use it when you want the last item in the row to take the full width of the remaining space :
 
@@ -186,6 +186,8 @@ ___
 
 ## <a name="asym-grid"></a> Asym Grid (asymmetrical grid)
 **[:arrow_up: back to top](#top)**
+
+`asym-grid: [ratio: <number / number>] [gutter?: value<px | em | rem>] [last?: 'last]`
 
 - You can set up another ratio everytime you defining a new row
 - The gutter value can be in 'px', 'em', 'rem' or '%'
@@ -291,6 +293,8 @@ The HTML :
 ## <a name="push"></a> Push
 **[:arrow_up: back to top](#top)**
 
+`push: [ratio: <number / number>] | [reset: 'reset']`
+
 Wanna push that one col to the right so that it's centered? easy :
 
 ```scss
@@ -332,6 +336,8 @@ Alternatively, you can also use negative values if you wanna **push** an element
 ## <a name="pull"></a> Pull
 **[:arrow_up: back to top](#top)**
 
+`pull: [ratio: <number / number>] | [reset: 'reset']`
+
 Wanna pull a col to the left? :
 
 ```scss
@@ -372,6 +378,8 @@ Alternatively, you can also use negative values if you wanna **pull** an element
 
 ## <a name="center"></a> Center
 **[:arrow_up: back to top](#top)**
+
+`center: [boolean];`
 
 If you wish to have an element centered and by itself on his own line, you can use `center: true;`
 
