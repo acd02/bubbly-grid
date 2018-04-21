@@ -72,10 +72,11 @@ Make sure the parent container is set to display `flex` :
 ```scss
 .container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .item {
-  sym-grid: 4, 20px;
+  sym-grid: 4 20px;
 }
 ```
 
@@ -107,7 +108,7 @@ The HTML :
 ```scss
 
 .item {
-  sym-grid: 3, 2em;
+  sym-grid: 3 2em;
 }
 ```
 - You'll get 3 columns per row
@@ -159,7 +160,7 @@ Let's say that when the window width gets below 420px, you wanna change the numb
 }
 
 @media screen and (max-width: 420px) {
-  sym-grid: 2 2em stretch
+  sym-grid: 2 2em stretch;
 }
 ```
 
@@ -296,7 +297,7 @@ Wanna push that one col to the right so that it's centered? easy :
 
 ```scss
 .one {
-  asym-grid: 4/12, 20px;
+  asym-grid: 4/12 20px;
 }
 
 .two {
@@ -305,7 +306,7 @@ Wanna push that one col to the right so that it's centered? easy :
 }
 
 .three {
-  asym-grid: 4/12, 20px last;
+  asym-grid: 4/12 20px last;
 }
 
 ```
@@ -330,7 +331,7 @@ The HTML :
 
 Alternatively, you can also use negative values if you wanna **push** an element to the left, e.g., `push: -1/12` is the same as `pull: 1/12`
 
-## <a name="$pull"></a> $pull
+## <a name="pull"></a> Pull
 **[:arrow_up: back to top](#top)**
 
 Wanna pull a col to the left? :
@@ -383,7 +384,7 @@ Above 760px :
 
 ```scss
 .one {
-  asym-grid: 2/10, 20px;
+  asym-grid: 2/10 20px;
   push: 8/10;
 }
 
