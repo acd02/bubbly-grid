@@ -1,19 +1,38 @@
-var path = require('path'),
-    pkg = require('./package.json');
+const postcss = require('postcss')
+const symGrid = require('./src/symGrid')
+const asymGrid = require('./src/asymGrid')
+const center = require('./src/center')
+const push = require('./src/push')
+const pull = require('./src/pull')
 
-exports = module.exports = function(opts) {
-  var implicit = (opts && opts.implicit === false) ? false : true;
+module.exports = postcss.plugin('postcss-bubbly-grid',
+  function bubblyGrid(options) {
+    return function (css) {
+      options = options || {}
 
-  return function(style){
-    style.include(__dirname);
+      css.walkDecls(function (decl, i) {
+        const rule = decl.parent
+        const value = decl.prop
 
-    if (implicit) {
-      style.import('bubbly-grid');
+        if (decl.prop === 'sym-grid') {
+          symGrid(decl, rule)
+        }
+
+        if (decl.prop === 'asym-grid') {
+          asymGrid(decl, rule)
+        }
+
+        if (decl.prop === 'center') {
+          center(decl, rule)
+        }
+
+        if (decl.prop === 'push') {
+          push(decl, rule)
+        }
+
+        if (decl.prop === 'pull') {
+          pull(decl, rule)
+        }
+      })
     }
-  };
-
-};
-
-exports.libname = pkg.name;
-exports.path = __dirname;
-exports.version = pkg.version;
+  })

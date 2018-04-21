@@ -6,76 +6,68 @@ This is also not an HTML grid system, meaning you're gonna be able to keep your 
 
 Made with calc() and Flexbox, so it will support the latest versions of Chrome, Firefox, Safari, Opera (not opera mini) & IE 11+.
 
+Built in PostCSS, so it will work with the preprocessor of your choice.
+
 ___
 
 Wanna see some nicer [doc](https://alx-l.github.io/bubbly-grid/)?
 
 Wanna see some [demos](https://codepen.io/collection/DKNwJZ/)?
 
-[npm](https://www.npmjs.com/package/bubbly-grid-sass)
+[npm](https://www.npmjs.com/package/postcss-bubbly-grid)
 
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Symmetrical grid](#sym-grid)
-  - [$col](#$col)
-  - [$gutter](#$gutter)
-  - [$stretch](#$stretch)
+  - [Col](#col)
+  - [Gutter](#gutter)
+  - [Stretch](#stretch)
   - [Media-queries](#sym-media)
 - [Asymmetrical grid](#asym-grid)
-  - [$push](#$push)
-  - [$pull](#$pull)
-  - [$linebreak](#line-break)
+  - [Push](#push)
+  - [Pull](#pull)
+  - [Center](#center)
   - [Media-queries](#asym-media)
 
 ## <a name="installation"></a> Installation
 
-`npm install bubbly-grid-sass`
+`npm install postcss-bubbly-grid`
 
 ## <a name="usage"></a> Usage
 **[:arrow_up: back to top](#top)**
 
-How to import it :
+How to use it :
 
-```scss
-// index.scss
+```js
+// postcss.config.js
 
-@import '~bubbly-grid-sass/bubbly-grid/index.scss';
+const bubblyGrid = require('postcss-bubbly-grid')
 
-@import 'partials/foo';
-@import 'partials/baz';
+module.exports = {
+  plugins: [
+    bubblyGrid()
+  ]
+}
+
 
 ```
 
 ## <a name="sym-grid"></a> Sym Grid (symmetrical only)
-
-Let me introduce you to the mixin :
-
-`@include sym-grid(4, 20px)`
-
-Behind the scenes :
-
-```scss
-@mixin sym-grid($col: 1, $gutter: 10px, $stretch: false)
-```
 
 Make sure the parent container is set to display `flex` :
 
 ```scss
 .container {
   display: flex;
-}
-
-.item {
-  @include sym-grid(whatever)
+  flex-wrap: wrap;
 }
 ```
 
-## <a name="$col"></a> $col
+## <a name="col"></a> Col
 **[:arrow_up: back to top](#top)**
 
 - number of columns per row
-- *default value is 1*
 
 ```scss
 .container {
@@ -83,7 +75,7 @@ Make sure the parent container is set to display `flex` :
 }
 
 .item {
-  @include sym-grid(4, 20px)
+  sym-grid: 4, 20px;
 }
 ```
 
@@ -107,16 +99,15 @@ The HTML :
 ![col](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/col.png)
 
 
-## <a name="$gutter"></a> $gutter
+## <a name="gutter"></a> Gutter
 **[:arrow_up: back to top](#top)**
 
 - width of the **gutter** (values can be in 'px', 'em', 'rem' or '%')
-- *default value is 10px*
 
 ```scss
 
 .item {
-  @include sym-grid(3, 2em);
+  sym-grid: 3, 2em;
 }
 ```
 - You'll get 3 columns per row
@@ -124,7 +115,7 @@ The HTML :
 
 ![gutter](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/gutter.png)
 
-## <a name="$stretch"></a> $stretch
+## <a name="stretch"></a> Stretch
 **[:arrow_up: back to top](#top)**
 
 - *default value is false*
@@ -134,7 +125,7 @@ The HTML :
 ```scss
 
 .item {
-  @include sym-grid(3, 2em, $stretch: true);
+  sym-grid: 3 2em stretch;
 }
 ```
 
@@ -164,17 +155,16 @@ Let's say that when the window width gets below 420px, you wanna change the numb
 
 ```scss
 .item {
-  @include sym-grid(4, 20px);
+  sym-grid: 4 20px;
 }
 
 @media screen and (max-width: 420px) {
-  @include sym-grid(2, 2em, $stretch: true);
+  sym-grid: 2 2em stretch
 }
 ```
 
 - First, we set a new cycle with: `2`
 - Then, we set a new value for the **gutter**: `2em`
-- If not declared, the $gutter value would've been: `10px` (the default value)
 
 ![sym-mq](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/sym-mq.png)
 
@@ -184,11 +174,11 @@ Let's say that when the window width gets below 420px, you wanna get rid of the 
 
 ```scss
 .item {
-  @include sym-grid(4, 20px, $stretch: true);
+  sym-grid: 4 20px stretch;
 }
 
 @media screen and (max-width: 420px) {
-  @include sym-grid(2, 20px, $stretch: reset);
+  sym-grid: 2 20px nostretch;
 }
 
 ```
@@ -198,20 +188,10 @@ ___
 ## <a name="asym-grid"></a> Asym Grid (asymmetrical grid)
 **[:arrow_up: back to top](#top)**
 
-Meet the mixin :
-
-`@include asym-grid(2/10, 20px)`
-
-Behind the scenes :
-
-```scss
-@mixin asym-grid($col: 1/1, $gutter: 0px, $last: false, $push: false, $pull: false, $linebreak: false)
-```
-
 - You can set up another ratio everytime you defining a new row
 - The gutter value can be in 'px', 'em', 'rem' or '%'
 - The gutter value must be the **same** across the different declarations defining a row
-- To remove the margin-right on the **last** element of a row, we add: `$last: true`
+- To remove the margin-right on the **last** element of a row, we must declare it with: `last`
 - Make sure the parent container is set to display `flex`
 
 Let's make an asymmetrical grid :
@@ -219,51 +199,52 @@ Let's make an asymmetrical grid :
 ```scss
 .container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 /* -- first row -- */
 
 .LeftSide {
-  @include asym-grid(2/10, 20px);
+  asym-grid: 2/10 20px;
 }
 
 .InBetween {
-  @include asym-grid(6/10, 20px);
+  asym-grid: 6/10 20px;
 }
 
 .RightSide {
-  @include asym-grid(2/10, 20px, $last: true);
+  asym-grid: 2/10 20px last;
 }
 
 
 /* -- second row -- */
 
 .left-side {
-  @include asym-grid(10/20, 10px);
+  asym-grid: 10/20 10px;
 }
 
 .in-between {
-  @include asym-grid(7/20, 10px);
+  asym-grid: 7/20 10px;
 }
 
 .right-side {
-  @include asym-grid(3/20, 10px, $last: true);
+  asym-grid: 3/20 10px last;
 }
 
 
 /* -- third row -- */
 
 .left__side {
-  @include asym-grid(3/12, 2em);
+  asym-grid: 3/12 2em;
 
 }
 
 .in__between {
-  @include asym-grid(3/12, 2em);
+  asym-grid: 3/12 2em;
 }
 
 .right__side {
-  @include asym-grid(6/12, 2em, $last: true);
+  asym-grid: 6/12 2em last;
 }
 
 ```
@@ -308,22 +289,23 @@ The HTML :
 ![asym-grid](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/asym-grid.png)
 
 
-## <a name="$push"></a> $push
+## <a name="push"></a> Push
 **[:arrow_up: back to top](#top)**
 
 Wanna push that one col to the right so that it's centered? easy :
 
 ```scss
 .one {
-  @include asym-grid(4/12, 20px);
+  asym-grid: 4/12, 20px;
 }
 
 .two {
-  @include asym-grid(2/12, 20px, $push: 1/12);
+  asym-grid: 2/12 20px;
+  push: 1/12;
 }
 
 .three {
-  @include asym-grid(4/12, 20px, $last: true);
+  asym-grid: 4/12, 20px last;
 }
 
 ```
@@ -346,7 +328,7 @@ The HTML :
 
 ![push](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/push.png)
 
-Alternatively, you can also use negative values if you wanna **push** an element to the left, e.g., `$push: -1/12` is the same as `$pull: 1/12`
+Alternatively, you can also use negative values if you wanna **push** an element to the left, e.g., `push: -1/12` is the same as `pull: 1/12`
 
 ## <a name="$pull"></a> $pull
 **[:arrow_up: back to top](#top)**
@@ -355,15 +337,17 @@ Wanna pull a col to the left? :
 
 ```scss
 .one {
-  @include asym-grid(4/12, 20px);
+  asym-grid: 4/12 20px;
 }
 
 .two {
-  @include asym-grid(2/12, 20px, $push: 6/12);
+  asym-grid: 2/12 20px;
+  push: 6/12;
 }
 
 .three {
-  @include asym-grid(4/12, 20px, $pull: 3/12, $last: true);
+  asym-grid: 4/12 20px;
+  pull: 3/12;
 }
 ```
 
@@ -385,13 +369,12 @@ The HTML :
 
 ![push](https://raw.githubusercontent.com/Alx-l/bubbly-grid/master/images/pull.png)
 
-Alternatively, you can also use negative values if you wanna **pull** an element to the right, e.g., `$pull: -1/12` is the same as `$push: 1/12`
+Alternatively, you can also use negative values if you wanna **pull** an element to the right, e.g., `pull: -1/12` is the same as `push: 1/12`
 
-## <a name="line-break"></a> $linebreak
+## <a name="center"></a> Center
 **[:arrow_up: back to top](#top)**
 
-If you wish to have an element to be by itself on his own line, you can use `$linebreak: true`
-
+If you wish to have an element centered and by itself on his own line, you can use `center: true;`
 
 ## <a name="asym-media"></a> Media-queries
 **[:arrow_up: back to top](#top)**
@@ -400,15 +383,17 @@ Above 760px :
 
 ```scss
 .one {
-  @include asym-grid(2/10, 20px, $push: 8/10);
+  asym-grid: 2/10, 20px;
+  push: 8/10;
 }
 
 .two {
-  @include asym-grid(6/10, 20px);
+  asym-grid: 6/10 20px;
 }
 
 .three {
-  @include asym-grid(2/10, 20px, $pull: 8/10, $last: true);
+  asym-grid: 2/10 20px last;
+  pull: 8/10;
 }
 
 ```
@@ -417,24 +402,26 @@ Above 760px :
 
 Below 760px :
 
-If you get bored of all the pushing and pulling around, use `$push: reset` or `$pull: reset`
+If you get bored of all the pushing and pulling around, use `push: reset;` or `pull: reset;`
 
 ```scss
 .one {
   @media screen and (max-width: 760px) {
-    @include asym-grid(1/3, 20px, $push: reset);
+    asym-grid: 1/3 20px;
+    push: reset;
   }
 }
 
 .two {
   @media screen and (max-width: 760px) {
-   @include asym-grid(1/3, 20px);
+   asym-grid: 1/3 20px;
   }
 }
 
 .three {
   @media screen and (max-width: 760px) {
-    @include asym-grid(1/3, 10px, $pull: reset, $last: true);
+    asym-grid: 1/3 10px;
+    pull: reset;
   }
 }
 

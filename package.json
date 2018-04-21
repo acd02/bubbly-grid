@@ -1,26 +1,28 @@
 {
-  "name": "bubbly-grid-stylus",
-  "version": "1.5.3",
-  "description": "An easy-to-use and very flexible grid system, made with calc()",
+  "name": "postcss-bubbly-grid",
+  "version": "1.0.1",
+  "description": "An easy-to-use and very flexible grid system, made with flexbox and calc()",
   "author": "Alex L",
-  "license": "ISC",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/Alx-l/bubbly-grid.git"
   },
-  "scripts": {
-    "test": "mocha"
-  },
   "keywords": [
-    "bubbly",
     "grid",
-    "system",
+    "flexbox",
     "calc",
-    "stylus"
+    "postcss"
   ],
+  "license": "ISC",
+  "dependencies": {
+    "postcss": "6.0.21"
+  },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "chai": "3.5.0",
+    "mocha": "2.5.3"
   }
 }
