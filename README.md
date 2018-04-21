@@ -6,7 +6,7 @@ This is also not an HTML grid system, meaning you're gonna be able to keep your 
 
 Made with calc() and Flexbox, so it will support the latest versions of Chrome, Firefox, Safari, Opera (not opera mini) & IE 11+.
 
-Built in PostCSS, so it will work with the preprocessor of your choice.
+Built in [PostCSS](http://postcss.org/), so it will work with the preprocessor of your choice.
 
 ___
 
