@@ -7,7 +7,7 @@ module.exports = function pull(decl, rule) {
   const ratio = ((value) => {
     const [nominator = NaN, denominator = NaN] = value.split('/')
     const toNum = val => Number(val)
-    const toInt = val => parseInt(val, 10)
+    const toInt = val => parseFloat(val)
 
     if (!toNum(nominator) || !toNum(denominator)) return NaN
     return (toInt(nominator) / toInt(denominator) * 100).toFixed(5)
