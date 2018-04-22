@@ -12,6 +12,8 @@ ___
 
 Wanna see some nicer [doc](https://alx-l.github.io/bubbly-grid/)?
 
+Wanna see some [demos](https://codepen.io/collection/AMpoxz/)?
+
 [npm](https://www.npmjs.com/package/postcss-bubbly-grid)
 
 
@@ -187,7 +189,7 @@ ___
 ## <a name="asym-grid"></a> Asym Grid (asymmetrical grid)
 **[:arrow_up: back to top](#top)**
 
-`asym-grid: [ratio: <number / number>] [gutter?: value<px | em | rem>] [last?: 'last]`
+`asym-grid: [ratio: <number / number>] [gutter?: value<px | em | rem>] [last?: 'last']`
 
 - You can set up another ratio everytime you defining a new row
 - The gutter value can be in 'px', 'em', 'rem' or '%'
