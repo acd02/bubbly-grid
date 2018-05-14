@@ -55,7 +55,7 @@ module.exports = {
 
 ## <a name="sym-grid"></a> Sym Grid (symmetrical only)
 
-`sym-grid: [col: number] [gutter?: value<px | em | rem>] [stretch?: 'stretch | 'nostretch]`
+`sym-grid: [col: number] [gutter?: value<px | % | em | rem>] [stretch?: 'stretch' | 'nostretch']`
 
 Make sure the parent container is set to display `flex` :
 
@@ -189,12 +189,11 @@ ___
 ## <a name="asym-grid"></a> Asym Grid (asymmetrical grid)
 **[:arrow_up: back to top](#top)**
 
-`asym-grid: [ratio: <number / number>] [gutter?: value<px | em | rem>] [last?: 'last']`
+`asym-grid: [ratio: <number / number>] [gutter?: value<px | ‰ | em | rem>] [last?: 'last']`
 
-- You can set up another ratio everytime you defining a new row
-- The gutter value can be in 'px', 'em', 'rem' or '%'
 - The gutter value must be the **same** across the different declarations defining a row
-- To remove the margin-right on the **last** element of a row, we must declare it with: `last`
+- To remove the margin-right on the **last** element of a row, we must pass the `last` parameter
+- You can set up another ratio everytime you defining a new row
 - Make sure the parent container is set to display `flex`
 
 Let's make an asymmetrical grid :
