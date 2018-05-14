@@ -79,6 +79,48 @@
       <p>
         <a href="https://www.npmjs.com/package/postcss-bubbly-grid">npm</a>
       </p>
+      <ul>
+        <li>
+          <a href="#installation">Installation</a>
+        </li>
+        <li>
+          <a href="#usage">Usage</a>
+        </li>
+        <li>
+          <a href="#sym-grid">Symmetrical grid</a>
+          <ul>
+            <li>
+              <a href="#col">Col</a>
+            </li>
+            <li>
+              <a href="#gutter">Gutter</a>
+            </li>
+            <li>
+              <a href="#stretch">Stretch</a>
+            </li>
+            <li>
+              <a href="#sym-media">Media-queries</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#asym-grid">Asymmetrical grid</a>
+          <ul>
+            <li>
+              <a href="#push">Push</a>
+            </li>
+            <li>
+              <a href="#pull">Pull</a>
+            </li>
+            <li>
+              <a href="#center">Center</a>
+            </li>
+            <li>
+              <a href="#asym-media">Media-queries</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
       <h2 id="a-nameinstallationa-installation">
         <a></a> Installation</h2>
       <p>
@@ -107,7 +149,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
       <h2 id="a-namesym-grida-sym-grid-symmetrical-only">
         <a></a> Sym Grid (symmetrical only)</h2>
       <p>
-        <code>sym-grid: [col: number] [gutter?: value&lt;px | em | rem&gt;] [stretch?: 'stretch | 'nostretch]</code>
+        <code>sym-grid: [col: number] [gutter?: value&lt;px | % | em | rem&gt;] [stretch?: 'stretch' | 'nostretch']</code>
       </p>
       <p>Make sure the parent container is set to display
         <code>flex</code> :</p>
@@ -258,17 +300,15 @@ module<span class="token punctuation">.</span>exports <span class="token operato
         </strong>
       </p>
       <p>
-        <code>asym-grid: [ratio: &lt;number / number&gt;] [gutter?: value&lt;px | em | rem&gt;] [last?: 'last']</code>
+        <code>asym-grid: [ratio: &lt;number / number&gt;] [gutter?: value&lt;px | ‰ | em | rem&gt;] [last?: 'last']</code>
       </p>
       <ul>
-        <li>You can set up another ratio everytime you defining a new row</li>
-        <li>The gutter value can be in ‘px’, ‘em’, ‘rem’ or ‘%’</li>
         <li>The gutter value must be the
           <strong>same</strong> across the different declarations defining a row</li>
         <li>To remove the margin-right on the
-          <strong>last</strong> element of a row, we must declare it with:
-          <code>last</code>
-        </li>
+          <strong>last</strong> element of a row, we must pass the
+          <code>last</code> parameter</li>
+        <li>You can set up another ratio everytime you defining a new row</li>
         <li>Make sure the parent container is set to display
           <code>flex</code>
         </li>
