@@ -1,6 +1,6 @@
 {
   "name": "postcss-bubbly-grid",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An easy-to-use and very flexible grid system, made with flexbox and calc()",
   "author": "Alex L",
   "main": "index.js",
