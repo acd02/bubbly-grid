@@ -1,9 +1,13 @@
+const getFileName = require('./utils').getFileName
+
 module.exports = function center(decl, rule) {
   const asymRatio = decl.parent.asymRatio
 
   // handle type errors
   if (decl.value !== 'true' && decl.value !== 'false') {
-    throw decl.error(`"${ decl.value }" is not valid value, expected "true" or "false"`);
+    throw decl.error(`"${ decl.value }" is not valid value, expected "true" or "false",
+      in ${ getFileName(rule) }
+    `);
   }
 
   if (!asymRatio) {
@@ -11,7 +15,9 @@ module.exports = function center(decl, rule) {
 
       asym-grid: 1/2 10px;
       center: true;
-    `);
+
+      in ${ getFileName(rule) }
+      `);
   }
 
   if (decl.value === 'true') {

@@ -1,3 +1,5 @@
+const getFileName = require('./utils').getFileName
+
 module.exports = function asymGrid(decl, rule) {
   const args = decl.value.split(' ')
 
@@ -20,15 +22,21 @@ module.exports = function asymGrid(decl, rule) {
 
   // handle type errors
   if (isNaN(ratio)) {
-    throw decl.error(`"${ _ratio }" is not valid value, expected something like "1/4" or "4/10"`);
+    throw decl.error(`"${ _ratio }" is not valid value, expected something like "1/4" or "4/10",
+      in ${ getFileName(rule) }
+    `);
   }
 
   if (isNaN(parseFloat(gutter))) {
-    throw decl.error(`"${ gutter }" is not valid value, expected something like "10px" or "1em"`);
+    throw decl.error(`"${ gutter }" is not valid value, expected something like "10px" or "1em",
+      in ${ getFileName(rule) }
+    `);
   }
 
   if (last && (last !== 'last')) {
-    throw decl.error(`"${ last }" is not valid value, you meant "last"?`);
+    throw decl.error(`"${ last }" is not valid value, you meant "last"?
+      in ${ getFileName(rule) }
+    `);
   }
 
   rule.append(`margin-right: ${ gutter }`)

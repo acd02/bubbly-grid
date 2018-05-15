@@ -1,3 +1,5 @@
+const getFileName = require('./utils').getFileName
+
 module.exports = function pull(decl, rule) {
   const asymRatio = decl.parent.asymRatio
   const _asymGutter = decl.parent.asymGutter
@@ -15,7 +17,9 @@ module.exports = function pull(decl, rule) {
 
   // handle type errors
   if (isNaN(ratio) && !isReset) {
-    throw decl.error(`"${ decl.value }" is not valid value, expected "reset" or something like "1/4" or "4/10"`);
+    throw decl.error(`"${ decl.value }" is not valid value, expected "reset" or something like "1/4" or "4/10",
+      in ${ getFileName(rule) }
+    `);
   }
 
   if (!isReset &&!asymRatio) {
@@ -23,6 +27,8 @@ module.exports = function pull(decl, rule) {
 
       asym-grid: 2/10 10px;
       pull: 4/10;
+
+      in ${ getFileName(rule) }
     `);
   }
 

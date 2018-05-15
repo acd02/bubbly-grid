@@ -1,5 +1,6 @@
 const newBlock = require('./newBlock')
-const range = require('./range')
+const range = require('./utils').range
+const getFileName = require('./utils').getFileName
 
 module.exports = function symGrid(decl, rule) {
   const args = decl.value.split(' ')
@@ -10,15 +11,21 @@ module.exports = function symGrid(decl, rule) {
 
   // handle type errors
   if (isNaN(_col)) {
-    throw decl.error(`"${ _col }" is not valid value, expected an number`);
+    throw decl.error(`"${ _col }" is not valid value, expected an number,
+    in ${ getFileName(rule) }
+    `);
   }
 
   if (isNaN(parseFloat(gutter))) {
-    throw decl.error(`"${ gutter }" is not valid value, expected something like "10px" or "1em"`);
+    throw decl.error(`"${ gutter }" is not valid value, expected something like "10px" or "1em",
+      in ${ getFileName(rule) }
+    `);
   }
 
   if (stretch && (stretch !== 'stretch' && stretch !== 'nostretch')) {
-    throw decl.error(`"${ stretch }" is not valid value, valid values are "stretch" | "nostretch"`);
+    throw decl.error(`"${ stretch }" is not valid value, valid values are "stretch" | "nostretch",
+      in ${ getFileName(rule) }
+    `);
   }
 
   const clearing = col + 1
